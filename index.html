@@ -6,17 +6,15 @@
 <title>RewardHub — The Ultimate Earning Platform</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--green:#00ff88;--green-dim:#00cc6a;--blue:#0088ff;--purple:#8844ff;--dark:#020509;--card:rgba(255,255,255,0.025);--card-border:rgba(0,255,136,0.1);--text:#e8f4f0;--muted:#5a7a70}
+:root{
+  --green:#00ff88;--blue:#0088ff;--purple:#8844ff;
+  --dark:#020509;--card:rgba(255,255,255,0.025);
+  --card-border:rgba(0,255,136,0.1);--text:#e8f4f0;--muted:#5a7a70;
+  --FRONTEND:https://earning-frontend-v2.vercel.app;
+  --BACKEND:https://earning-backend-c-production.up.railway.app;
+}
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
 body{background:var(--dark);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden}
-/* URLS */
-:root{
-  --demo-url:      'https://earning-frontend-v2.vercel.app';
-  --login-url:     'https://earning-frontend-v2.vercel.app/login';
-  --signup-url:    'https://earning-frontend-v2.vercel.app/signup';
-  --api-url:       'https://earning-backend-c-production.up.railway.app';
-}
-/* SPACE BG */
 .space-bg{position:fixed;inset:0;z-index:0;pointer-events:none}
 #starfield{position:absolute;inset:0}
 .nebula{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
@@ -30,20 +28,30 @@ body{background:var(--dark);color:var(--text);font-family:'DM Sans',sans-serif;o
 .ring-2{width:680px;height:680px;border-color:rgba(136,68,255,0.11);animation-duration:32s;animation-direction:reverse}
 .ring-3{width:880px;height:880px;border-color:rgba(0,136,255,0.08);animation-duration:48s}
 @keyframes rr{from{transform:translate(-50%,-50%) rotateX(75deg) rotateZ(0deg)}to{transform:translate(-50%,-50%) rotateX(75deg) rotateZ(360deg)}}
+
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:16px 64px;background:rgba(2,5,9,0.8);backdrop-filter:blur(24px);border-bottom:1px solid rgba(0,255,136,0.06)}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:16px 64px;background:rgba(2,5,9,0.85);backdrop-filter:blur(24px);border-bottom:1px solid rgba(0,255,136,0.07)}
 .logo{display:flex;align-items:center;gap:10px;font-family:'Syne',sans-serif;font-weight:800;font-size:20px;text-decoration:none;color:var(--text)}
 .logo-icon{width:34px;height:34px;background:linear-gradient(135deg,#00ff88,#00cc6a);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 0 22px rgba(0,255,136,0.45);position:relative}
 .logo-icon::after{content:'';position:absolute;inset:-3px;border-radius:12px;border:1px solid rgba(0,255,136,0.3)}
 .logo span{color:var(--green)}
-nav ul{display:flex;list-style:none;gap:32px}
+nav ul{display:flex;list-style:none;gap:28px}
 nav ul a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:500;transition:color .2s}
 nav ul a:hover{color:var(--text)}
 .nav-right{display:flex;gap:10px;align-items:center}
-.btn-ghost{padding:7px 18px;border:1px solid rgba(255,255,255,0.1);background:transparent;color:var(--text);border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
-.btn-ghost:hover{border-color:rgba(0,255,136,0.3);color:var(--green)}
-.btn-green-sm{padding:7px 18px;background:var(--green);color:#020509;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;box-shadow:0 0 20px rgba(0,255,136,0.3)}
-.btn-green-sm:hover{box-shadow:0 0 35px rgba(0,255,136,0.5);transform:translateY(-1px)}
+
+/* BTN SYSTEM */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 20px;border-radius:9px;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;text-decoration:none;border:none}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.1)}
+.btn-ghost:hover{border-color:rgba(0,255,136,0.35);color:var(--green)}
+.btn-green{background:var(--green);color:#020509;box-shadow:0 0 22px rgba(0,255,136,0.3)}
+.btn-green:hover{box-shadow:0 0 40px rgba(0,255,136,0.55);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.12)}
+.btn-outline:hover{border-color:rgba(0,255,136,0.35);color:var(--green);transform:translateY(-2px)}
+.btn-lg{padding:13px 28px;font-size:15px;border-radius:10px}
+.btn-dashboard{background:rgba(0,255,136,0.08);color:var(--green);border:1px solid rgba(0,255,136,0.25)}
+.btn-dashboard:hover{background:rgba(0,255,136,0.15);border-color:rgba(0,255,136,0.5);transform:translateY(-1px)}
+
 /* HERO */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:130px 64px 80px;z-index:1;overflow:hidden}
 .hero-left{max-width:520px;position:relative;z-index:2}
@@ -54,13 +62,9 @@ nav ul a:hover{color:var(--text)}
 h1{font-family:'Syne',sans-serif;font-size:clamp(44px,5.5vw,68px);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:22px;animation:fu .7s .2s both}
 h1 em{font-style:normal;color:var(--green)}
 .hero-sub{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:36px;max-width:420px;animation:fu .7s .3s both}
-.hero-btns{display:flex;gap:14px;animation:fu .7s .4s both}
-.btn-lg{padding:13px 26px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .25s;display:flex;align-items:center;gap:8px;text-decoration:none}
-.btn-lg.g{background:var(--green);color:#020509;border:none;box-shadow:0 0 30px rgba(0,255,136,0.35)}
-.btn-lg.g:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(0,255,136,0.55)}
-.btn-lg.o{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.12)}
-.btn-lg.o:hover{border-color:rgba(0,255,136,0.35);color:var(--green);transform:translateY(-2px)}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;animation:fu .7s .4s both}
 @keyframes fu{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
 /* MOCKUP */
 .hero-right{position:absolute;right:-20px;top:50%;transform:translateY(-50%);width:57%;max-width:740px;z-index:2;animation:mi 1s .4s both}
 @keyframes mi{from{opacity:0;transform:translateY(-46%) translateX(50px)}to{opacity:1;transform:translateY(-50%) translateX(0)}}
@@ -73,8 +77,8 @@ h1 em{font-style:normal;color:var(--green)}
 .m-title{margin-left:8px;font-size:10px;color:var(--muted);font-weight:500}
 .m-body{padding:12px;display:grid;grid-template-columns:130px 1fr 1fr;gap:9px}
 .m-side{grid-row:1/5;background:rgba(0,255,136,0.03);border:1px solid rgba(0,255,136,0.07);border-radius:9px;padding:10px 8px;display:flex;flex-direction:column;gap:3px}
-.m-ni{padding:6px 9px;border-radius:5px;font-size:9px;color:var(--muted);display:flex;align-items:center;gap:5px}
-.m-ni.a{background:rgba(0,255,136,0.1);color:var(--green)}
+.m-ni{padding:6px 9px;border-radius:5px;font-size:9px;color:var(--muted);display:flex;align-items:center;gap:5px;cursor:pointer;transition:all .2s;text-decoration:none}
+.m-ni:hover,.m-ni.a{background:rgba(0,255,136,0.1);color:var(--green)}
 .m-nd{width:4px;height:4px;border-radius:50%;background:currentColor}
 .m-stat{background:rgba(0,255,136,0.04);border:1px solid rgba(0,255,136,0.09);border-radius:9px;padding:11px}
 .m-sl{font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
@@ -93,22 +97,39 @@ h1 em{font-style:normal;color:var(--green)}
 .m-pb{height:3px;background:rgba(0,255,136,0.1);border-radius:2px}
 .m-pf{height:100%;background:linear-gradient(90deg,var(--green),var(--blue));border-radius:2px}
 .m-glow{position:absolute;bottom:-35px;left:50%;transform:translateX(-50%);width:75%;height:70px;background:radial-gradient(ellipse,rgba(0,255,136,0.22),transparent 70%);filter:blur(18px);pointer-events:none}
+
 /* STATS */
 .stats-strip{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(0,255,136,0.07);border-bottom:1px solid rgba(0,255,136,0.07);background:rgba(3,8,16,0.8);backdrop-filter:blur(20px)}
-.sc{padding:44px 0;text-align:center;border-right:1px solid rgba(0,255,136,0.07);transition:background .3s;position:relative;overflow:hidden}
+.sc{padding:44px 0;text-align:center;border-right:1px solid rgba(0,255,136,0.07);transition:background .3s;position:relative}
 .sc::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60%;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);opacity:0;transition:opacity .3s}
 .sc:hover{background:rgba(0,255,136,0.025)}.sc:hover::before{opacity:1}
 .sc:last-child{border-right:none}
 .sn{font-family:'Syne',sans-serif;font-size:52px;font-weight:800;color:var(--green);line-height:1;margin-bottom:8px;text-shadow:0 0 40px rgba(0,255,136,0.4)}
 .sl{font-size:13px;color:var(--muted);font-weight:500}
 .sd{font-size:11px;color:rgba(90,122,112,0.5);margin-top:4px}
+
 /* SECTION */
 section{position:relative;z-index:1;padding:100px 64px}
 .eyebrow{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:18px}
 .el{flex:0 0 48px;height:1px;background:linear-gradient(90deg,transparent,var(--green))}.el.r{background:linear-gradient(90deg,var(--green),transparent)}
-.et{font-size:11px;font-weight:700;color:var(--green);letter-spacing:3px;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.et{font-size:11px;font-weight:700;color:var(--green);letter-spacing:3px;text-transform:uppercase}
 .sec-title{font-family:'Syne',sans-serif;font-size:clamp(32px,4vw,50px);font-weight:800;text-align:center;margin-bottom:14px;letter-spacing:-1px}
 .sec-sub{text-align:center;color:var(--muted);font-size:15px;max-width:550px;margin:0 auto 60px;line-height:1.75}
+
+/* DASHBOARD SECTION */
+.dashboard-section{position:relative;z-index:1;padding:80px 64px;background:rgba(0,255,136,0.02);border-top:1px solid rgba(0,255,136,0.07);border-bottom:1px solid rgba(0,255,136,0.07)}
+.dashboard-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:40px}
+.dash-card{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:20px;cursor:pointer;transition:all .3s;text-decoration:none;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
+.dash-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--green),transparent);opacity:0;transition:opacity .3s}
+.dash-card:hover{border-color:rgba(0,255,136,0.3);background:rgba(0,255,136,0.05);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,255,136,0.08)}
+.dash-card:hover::before{opacity:1}
+.dash-icon{width:42px;height:42px;background:rgba(0,255,136,0.1);border:1px solid rgba(0,255,136,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.dash-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--text)}
+.dash-desc{font-size:11px;color:var(--muted);line-height:1.5}
+.dash-arrow{margin-top:auto;font-size:12px;color:var(--muted);transition:all .3s}
+.dash-card:hover .dash-arrow{color:var(--green);transform:translateX(4px)}
+.dashboard-cta{text-align:center}
+
 /* FEATURES */
 .feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1200px;margin:0 auto}
 .fc{background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:26px 22px;transition:all .35s;position:relative;overflow:hidden}
@@ -119,6 +140,7 @@ section{position:relative;z-index:1;padding:100px 64px}
 .fc:hover .fi{background:rgba(0,255,136,0.15);box-shadow:0 0 20px rgba(0,255,136,0.2)}
 .ft{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:8px}
 .fd{font-size:12px;color:var(--muted);line-height:1.65}
+
 /* MARQUEE */
 .mq-wrap{position:relative;overflow:hidden;padding:16px 0}
 .mq-wrap::before,.mq-wrap::after{content:'';position:absolute;top:0;bottom:0;width:180px;z-index:2}
@@ -128,6 +150,7 @@ section{position:relative;z-index:1;padding:100px 64px}
 @keyframes mq{to{transform:translateX(-50%)}}
 .mpill{display:flex;align-items:center;gap:7px;padding:8px 16px;white-space:nowrap;background:rgba(0,255,136,0.04);border:1px solid rgba(0,255,136,0.1);border-radius:100px;font-size:12px;font-weight:500;color:var(--text)}
 .mpd{width:5px;height:5px;border-radius:50%;background:var(--green);box-shadow:0 0 5px var(--green)}
+
 /* BIG CARDS */
 .big-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1200px;margin:0 auto}
 .bc{background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:34px;position:relative;overflow:hidden;transition:all .35s}
@@ -143,75 +166,74 @@ section{position:relative;z-index:1;padding:100px 64px}
 .tags{display:flex;flex-wrap:wrap;gap:7px}
 .tag{padding:3px 11px;background:rgba(0,255,136,0.07);border:1px solid rgba(0,255,136,0.13);border-radius:100px;font-size:11px;color:var(--green);font-weight:500}
 
-/* ===== PRICING ===== */
-#pricing{padding:100px 64px}
+/* PRICING */
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto}
 .price-card{background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:36px 30px;position:relative;overflow:hidden;transition:all .35s}
-.price-card.popular{border-color:rgba(0,255,136,0.4);background:rgba(0,255,136,0.04)}
+.price-card.popular{border-color:rgba(0,255,136,0.35);background:rgba(0,255,136,0.03)}
 .price-card:hover{transform:translateY(-5px);box-shadow:0 30px 80px rgba(0,0,0,0.3)}
 .popular-badge{position:absolute;top:16px;right:16px;padding:4px 12px;background:var(--green);color:#020509;border-radius:100px;font-size:11px;font-weight:700}
-.price-plan{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px}
-.price-amount{font-family:'Syne',sans-serif;font-size:52px;font-weight:800;color:var(--text);line-height:1;margin-bottom:4px}
-.price-amount span{font-size:20px;color:var(--muted);font-weight:400}
-.price-note{font-size:12px;color:var(--muted);margin-bottom:28px}
-.price-divider{height:1px;background:rgba(0,255,136,0.08);margin-bottom:24px}
-.price-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
-.price-features li{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)}
-.price-features li::before{content:'✓';color:var(--green);font-weight:700;font-size:12px;flex-shrink:0}
-.price-features li.no{color:rgba(90,122,112,0.4)}
+.price-plan{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px}
+.price-amount{font-family:'Syne',sans-serif;font-size:52px;font-weight:800;line-height:1;margin-bottom:4px}
+.price-amount span{font-size:18px;color:var(--muted);font-weight:400}
+.price-note{font-size:12px;color:var(--muted);margin-bottom:24px}
+.price-divider{height:1px;background:rgba(0,255,136,0.08);margin-bottom:20px}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:28px}
+.price-features li{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.price-features li::before{content:'✓';color:var(--green);font-weight:700;font-size:11px;flex-shrink:0}
+.price-features li.no{color:rgba(90,122,112,0.35)}
 .price-features li.no::before{content:'×';color:rgba(90,122,112,0.3)}
-.btn-price{width:100%;padding:12px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .25s;text-align:center;text-decoration:none;display:block}
+.btn-price{width:100%;padding:12px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .25s;text-align:center;text-decoration:none;display:block;border:none}
 .btn-price.outline{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.12)}
 .btn-price.outline:hover{border-color:rgba(0,255,136,0.4);color:var(--green)}
-.btn-price.filled{background:var(--green);color:#020509;border:none;box-shadow:0 0 25px rgba(0,255,136,0.3)}
+.btn-price.filled{background:var(--green);color:#020509;box-shadow:0 0 25px rgba(0,255,136,0.3)}
 .btn-price.filled:hover{box-shadow:0 0 40px rgba(0,255,136,0.5);transform:translateY(-1px)}
 
-/* ===== DEMO SECTION ===== */
-#demo{padding:80px 64px;background:rgba(0,255,136,0.02);border-top:1px solid rgba(0,255,136,0.06);border-bottom:1px solid rgba(0,255,136,0.06)}
+/* DEMO */
 .demo-box{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
 .demo-left h2{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;letter-spacing:-1px;margin-bottom:14px}
 .demo-left p{color:var(--muted);font-size:14px;line-height:1.75;margin-bottom:24px}
 .demo-creds{background:rgba(0,0,0,0.3);border:1px solid rgba(0,255,136,0.12);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px}
 .cred-row{display:flex;justify-content:space-between;align-items:center;font-size:13px}
 .cred-label{color:var(--muted)}
-.cred-val{font-family:monospace;color:var(--green);background:rgba(0,255,136,0.08);padding:3px 10px;border-radius:6px;font-size:12px}
-.demo-right{display:flex;flex-direction:column;gap:12px}
-.demo-link{display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--card);border:1px solid var(--card-border);border-radius:12px;text-decoration:none;color:var(--text);transition:all .25s}
+.cred-val{font-family:monospace;color:var(--green);background:rgba(0,255,136,0.08);padding:3px 10px;border-radius:6px;font-size:12px;cursor:pointer;transition:background .2s}
+.cred-val:hover{background:rgba(0,255,136,0.15)}
+.demo-right{display:flex;flex-direction:column;gap:10px}
+.demo-link{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--card);border:1px solid var(--card-border);border-radius:12px;text-decoration:none;color:var(--text);transition:all .25s}
 .demo-link:hover{border-color:rgba(0,255,136,0.3);background:rgba(0,255,136,0.04);transform:translateX(4px)}
-.demo-link-icon{width:40px;height:40px;background:rgba(0,255,136,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.demo-link-text{display:flex;flex-direction:column;gap:2px}
-.demo-link-title{font-weight:600;font-size:14px}
+.demo-link-icon{width:38px;height:38px;background:rgba(0,255,136,0.1);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.demo-link-text{display:flex;flex-direction:column;gap:2px;flex:1}
+.demo-link-title{font-weight:600;font-size:13px}
 .demo-link-url{font-size:11px;color:var(--muted)}
-.demo-link-arrow{margin-left:auto;color:var(--muted);font-size:18px;transition:transform .2s}
+.demo-link-arrow{color:var(--muted);font-size:16px;transition:all .2s}
 .demo-link:hover .demo-link-arrow{transform:translateX(4px);color:var(--green)}
 
-/* ===== CONTACT ===== */
-#contact{padding:100px 64px}
+/* CONTACT */
 .contact-wrap{max-width:600px;margin:0 auto}
 .contact-form{display:flex;flex-direction:column;gap:16px;margin-top:48px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .form-group{display:flex;flex-direction:column;gap:6px}
-.form-group label{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.form-group label{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
 .form-group input,.form-group textarea,.form-group select{background:rgba(255,255,255,0.03);border:1px solid rgba(0,255,136,0.12);border-radius:10px;padding:12px 16px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;transition:all .2s;outline:none;resize:none}
 .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:rgba(0,255,136,0.4);background:rgba(0,255,136,0.03);box-shadow:0 0 0 3px rgba(0,255,136,0.06)}
 .form-group select option{background:#060d14;color:var(--text)}
-.form-group textarea{height:120px}
+.form-group textarea{height:110px}
 .btn-submit{padding:14px;background:var(--green);color:#020509;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .25s;box-shadow:0 0 25px rgba(0,255,136,0.3)}
 .btn-submit:hover{box-shadow:0 0 45px rgba(0,255,136,0.5);transform:translateY(-1px)}
-.btn-submit:disabled{opacity:0.5;cursor:not-allowed;transform:none}
-.form-success{display:none;text-align:center;padding:30px;background:rgba(0,255,136,0.06);border:1px solid rgba(0,255,136,0.2);border-radius:12px;color:var(--green);font-size:15px;font-weight:500}
+.btn-submit:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.form-success{display:none;text-align:center;padding:28px;background:rgba(0,255,136,0.06);border:1px solid rgba(0,255,136,0.2);border-radius:12px;color:var(--green);font-size:15px;font-weight:500}
 
 /* CTA */
 .cta-wrap{padding:80px 64px;position:relative;z-index:1}
-.cta-box{max-width:720px;margin:0 auto;background:rgba(0,255,136,0.025);border:1px solid rgba(0,255,136,0.12);border-radius:24px;padding:72px 60px;text-align:center;position:relative;overflow:hidden}
+.cta-box{max-width:720px;margin:0 auto;background:rgba(0,255,136,0.025);border:1px solid rgba(0,255,136,0.12);border-radius:24px;padding:70px 60px;text-align:center;position:relative;overflow:hidden}
 .cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(0,255,136,0.07),transparent 70%);pointer-events:none}
 .cta-box h2{font-family:'Syne',sans-serif;font-size:clamp(32px,4vw,44px);font-weight:800;margin-bottom:14px;letter-spacing:-1px;position:relative}
 .cta-box p{color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:36px;position:relative}
-.cta-btns{display:flex;gap:14px;justify-content:center;position:relative}
+.cta-btns{display:flex;gap:14px;justify-content:center;position:relative;flex-wrap:wrap}
+
 /* FOOTER */
-footer{position:relative;z-index:1;border-top:1px solid rgba(0,255,136,0.06);padding:36px 64px;display:flex;align-items:center;justify-content:space-between;background:rgba(2,5,9,0.6)}
+footer{position:relative;z-index:1;border-top:1px solid rgba(0,255,136,0.06);padding:32px 64px;display:flex;align-items:center;justify-content:space-between;background:rgba(2,5,9,0.7)}
 .fl{display:flex;align-items:center;gap:9px;font-family:'Syne',sans-serif;font-weight:700;font-size:16px}
-.footer-links{display:flex;gap:24px}
+.footer-links{display:flex;gap:20px}
 .footer-links a{font-size:12px;color:var(--muted);text-decoration:none;transition:color .2s}
 .footer-links a:hover{color:var(--green)}
 .fc2{font-size:12px;color:var(--muted)}
@@ -219,6 +241,8 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(0,255,136,0.06);pad
 </style>
 </head>
 <body>
+
+<!-- Space BG -->
 <div class="space-bg">
   <canvas id="starfield"></canvas>
   <div class="nebula nebula-1"></div>
@@ -236,14 +260,15 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(0,255,136,0.06);pad
   <a href="#" class="logo"><div class="logo-icon">⚡</div>Reward<span>Hub</span></a>
   <ul>
     <li><a href="#features">Features</a></li>
-    <li><a href="#modules">Modules</a></li>
+    <li><a href="#dashboard">Dashboard</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#demo">Demo</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <button class="btn-ghost" onclick="window.open('https://earning-frontend-v2.vercel.app/login','_blank')">⬆ Login</button>
-    <button class="btn-green-sm" onclick="window.open('https://earning-frontend-v2.vercel.app/signup','_blank')">Get Started ▾</button>
+    <a href="https://earning-frontend-v2.vercel.app/login" target="_blank" class="btn btn-ghost">⬆ Login</a>
+    <a href="https://earning-frontend-v2.vercel.app" target="_blank" class="btn btn-dashboard">🖥️ Dashboard</a>
+    <a href="https://earning-frontend-v2.vercel.app/signup" target="_blank" class="btn btn-green">Get Started</a>
   </div>
 </nav>
 
@@ -254,8 +279,9 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(0,255,136,0.06);pad
     <h1>The Ultimate<br><em>Earning</em><br>Platform</h1>
     <p class="hero-sub">Multi-tenant earning SaaS with ad networks, wallet management, fraud detection, real-time analytics, and a powerful admin panel.</p>
     <div class="hero-btns">
-      <a href="https://earning-frontend-v2.vercel.app" target="_blank" class="btn-lg g">🚀 Live Demo</a>
-      <a href="#pricing" class="btn-lg o">› View Pricing</a>
+      <a href="https://earning-frontend-v2.vercel.app" target="_blank" class="btn btn-green btn-lg">🚀 Live Demo</a>
+      <a href="https://earning-frontend-v2.vercel.app" target="_blank" class="btn btn-dashboard btn-lg">🖥️ Open Dashboard</a>
+      <a href="#pricing" class="btn btn-outline btn-lg">› Pricing</a>
     </div>
   </div>
   <div class="hero-right">
@@ -269,20 +295,20 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(0,255,136,0.06);pad
           </div>
           <div class="m-body">
             <div class="m-side">
-              <div class="m-ni a"><div class="m-nd"></div>Dashboard</div>
-              <div class="m-ni"><div class="m-nd"></div>Users</div>
-              <div class="m-ni"><div class="m-nd"></div>Wallet</div>
-              <div class="m-ni"><div class="m-nd"></div>Analytics</div>
-              <div class="m-ni"><div class="m-nd"></div>Tasks</div>
-              <div class="m-ni"><div class="m-nd"></div>Offerwall</div>
-              <div class="m-ni"><div class="m-nd"></div>Referral</div>
-              <div class="m-ni"><div class="m-nd"></div>KYC</div>
-              <div class="m-ni"><div class="m-nd"></div>Settings</div>
+              <a href="https://earning-frontend-v2.vercel.app" target="_blank" class="m-ni a"><div class="m-nd"></div>Dashboard</a>
+              <a href="https://earning-frontend-v2.vercel.app/users" target="_blank" class="m-ni"><div class="m-nd"></div>Users</a>
+              <a href="https://earning-frontend-v2.vercel.app/wallet" target="_blank" class="m-ni"><div class="m-nd"></div>Wallet</a>
+              <a href="https://earning-frontend-v2.vercel.app/analytics" target="_blank" class="m-ni"><div class="m-nd"></div>Analytics</a>
+              <a href="https://earning-frontend-v2.vercel.app/tasks" target="_blank" class="m-ni"><div class="m-nd"></div>Tasks</a>
+              <a href="https://earning-frontend-v2.vercel.app/offerwall" target="_blank" class="m-ni"><div class="m-nd"></div>Offerwall</a>
+              <a href="https://earning-frontend-v2.vercel.app/referral" target="_blank" class="m-ni"><div class="m-nd"></div>Referral</a>
+              <a href="https://earning-frontend-v2.vercel.app/kyc" target="_blank" class="m-ni"><div class="m-nd"></div>KYC</a>
+              <a href="https://earning-frontend-v2.vercel.app/settings" target="_blank" class="m-ni"><div class="m-nd"></div>Settings</a>
             </div>
             <div class="m-stat"><div class="m-sl">Total Revenue</div><div class="m-sv">৳31.9M</div><div class="m-ss">↑ 19.97% this month</div></div>
             <div class="m-stat"><div class="m-sl">Active Users</div><div class="m-sv">15.8K</div><div class="m-ss">↑ 8.5% this week</div></div>
             <div class="m-chart">
-              <div class="m-sl">Revenue — Fitness Staking Oracle</div>
+              <div class="m-sl">Revenue Chart</div>
               <svg viewBox="0 0 300 55" preserveAspectRatio="none">
                 <defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(0,255,136,0.3)"/><stop offset="100%" stop-color="rgba(0,255,136,0)"/></linearGradient></defs>
                 <polyline points="0,48 30,40 60,44 90,26 120,32 150,16 180,23 210,10 240,18 270,6 300,13" fill="none" stroke="#00ff88" stroke-width="1.5" stroke-linejoin="round"/>
@@ -315,6 +341,34 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(0,255,136,0.06);pad
   <div class="sc"><div class="sn">100%</div><div class="sl">Production Ready</div><div class="sd">Railway + Vercel deployed</div></div>
 </div>
 
+<!-- DASHBOARD SECTION -->
+<div class="dashboard-section" id="dashboard">
+  <div class="eyebrow"><div class="el"></div><div class="et">← Dashboard Pages →</div><div class="el r"></div></div>
+  <h2 class="sec-title" style="margin-bottom:12px">Explore All Pages</h2>
+  <p class="sec-sub">Click any page to open directly in the admin panel.</p>
+  <div class="dashboard-grid">
+    <a href="https://earning-frontend-v2.vercel.app" target="_blank" class="dash-card"><div class="dash-icon">📊</div><div class="dash-name">Dashboard</div><div class="dash-desc">Main overview with stats and charts</div><div class="dash-arrow">→ Open</div></a>
+    <a href="https://earning-frontend-v2.vercel.app/users" target="_blank" class="dash-card"><div class="dash-icon">👥</div><div class="dash-name">Users</div><div class="dash-desc">User management and profiles</div><div class="dash-arrow">→ Open</div></a>
+    <a href="https://earning-frontend-v2.vercel.app/wallet" target="_blank" class="dash-card"><div class="dash-icon">💰</div><div class="dash-name">Wallet</div><div class="dash-desc">Balances, transactions, payouts</div><div class="dash-arrow">→ Open</div></a>
+    <a href="https://earning-frontend-v2.vercel.app/analytics" target="_blank" class="dash-card"><div class="dash-icon">📈</div><div class="dash-name">Analytics</div><div class="dash-desc">Revenue and user analytics</div><div class="dash-arrow">→ Open</div></a>
+    <a href="https://earning-frontend-v2.vercel.app/tasks" target="_blank" class="dash-card"><div class="dash-icon">✅</div><div class="dash-name">Tasks</div><div class="dash-desc">Task management and completions</div><div class="dash-arrow">→ Open</div></a>
+    <a href="https://earning-frontend-v2.vercel.app/offerwall" target="_blank" class="dash-card"><div class="dash-icon">🎯</div><div class="dash-name">Offerwall</div><div class="dash-desc">Offers, clicks, conversions</div><div class="dash-arrow">→ Open</div></a>
+    <a href="https://earning-frontend-v2.vercel.app/referral" target="_blank" class="dash-card"><div class="dash-icon">🔗</div><div class="dash-name">Referral</div><div class="dash-desc">Referral tracking and commissions</div><div class="dash-arrow">→ Open</div></a>
+    <a href="https://earning-frontend-v2.vercel.app/kyc" target="_blank" class="dash-card"><div class="dash-icon">🪪</div><div class="dash-name">KYC</div><div class="dash-desc">Identity verification system</div><div class="dash-arrow">→ Open</div></a>
+    <a href="https://earning-frontend-v2.vercel.app/fraud-detection" target="_blank" class="dash-card"><div class="dash-icon">🛡️</div><div class="dash-name">Fraud Detection</div><div class="dash-desc">Risk profiles and fraud alerts</div><div class="dash-arrow">→ Open</div></a>
+    <a href="https://earning-frontend-v2.vercel.app/notifications" target="_blank" class="dash-card"><div class="dash-icon">🔔</div><div class="dash-name">Notifications</div><div class="dash-desc">Campaigns and templates</div><div class="dash-arrow">→ Open</div></a>
+    <a href="https://earning-frontend-v2.vercel.app/gamification" target="_blank" class="dash-card"><div class="dash-icon">🎮</div><div class="dash-name">Gamification</div><div class="dash-desc">Achievements and leaderboards</div><div class="dash-arrow">→ Open</div></a>
+    <a href="https://earning-frontend-v2.vercel.app/endpoint-control" target="_blank" class="dash-card"><div class="dash-icon">⚡</div><div class="dash-name">Endpoint Control</div><div class="dash-desc">Toggle 5,751 API endpoints live</div><div class="dash-arrow">→ Open</div></a>
+    <a href="https://earning-frontend-v2.vercel.app/payment-gateways" target="_blank" class="dash-card"><div class="dash-icon">💳</div><div class="dash-name">Payment Gateways</div><div class="dash-desc">bKash, Nagad, Stripe setup</div><div class="dash-arrow">→ Open</div></a>
+    <a href="https://earning-frontend-v2.vercel.app/subscriptions" target="_blank" class="dash-card"><div class="dash-icon">⭐</div><div class="dash-name">Subscriptions</div><div class="dash-desc">Plans and membership management</div><div class="dash-arrow">→ Open</div></a>
+    <a href="https://earning-frontend-v2.vercel.app/cms" target="_blank" class="dash-card"><div class="dash-icon">📝</div><div class="dash-name">CMS</div><div class="dash-desc">Content, banners, FAQs</div><div class="dash-arrow">→ Open</div></a>
+    <a href="https://earning-frontend-v2.vercel.app/audit-logs" target="_blank" class="dash-card"><div class="dash-icon">📋</div><div class="dash-name">Audit Logs</div><div class="dash-desc">Full activity tracking</div><div class="dash-arrow">→ Open</div></a>
+  </div>
+  <div class="dashboard-cta">
+    <a href="https://earning-frontend-v2.vercel.app" target="_blank" class="btn btn-green btn-lg">🖥️ Open Full Dashboard →</a>
+  </div>
+</div>
+
 <!-- FEATURES -->
 <section id="features">
   <div class="eyebrow"><div class="el"></div><div class="et">← Core Features →</div><div class="el r"></div></div>
@@ -333,7 +387,7 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(0,255,136,0.06);pad
 </section>
 
 <!-- MODULES MARQUEE -->
-<section id="modules" style="padding:20px 0 80px">
+<section style="padding:0 0 80px">
   <div class="mq-wrap"><div class="mq-track" id="mtrack"></div></div>
 </section>
 
@@ -373,7 +427,7 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(0,255,136,0.06);pad
       <div class="popular-badge">Most Popular</div>
       <div class="price-plan">Professional</div>
       <div class="price-amount">$299<span>/once</span></div>
-      <div class="price-note">Extended license — sell to clients</div>
+      <div class="price-note">Extended license</div>
       <div class="price-divider"></div>
       <ul class="price-features">
         <li>Everything in Starter</li>
@@ -389,7 +443,7 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(0,255,136,0.06);pad
     <div class="price-card">
       <div class="price-plan">Enterprise</div>
       <div class="price-amount">$999<span>/once</span></div>
-      <div class="price-note">Unlimited sites + custom dev</div>
+      <div class="price-note">Unlimited + custom dev</div>
       <div class="price-divider"></div>
       <ul class="price-features">
         <li>Everything in Professional</li>
@@ -406,44 +460,38 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(0,255,136,0.06);pad
 </section>
 
 <!-- DEMO -->
-<section id="demo" style="padding:0">
-  <div id="demo" style="padding:80px 64px;background:rgba(0,255,136,0.02);border-top:1px solid rgba(0,255,136,0.06);border-bottom:1px solid rgba(0,255,136,0.06)">
-    <div class="demo-box">
-      <div class="demo-left">
-        <h2>Try the<br><span style="color:var(--green)">Live Demo</span></h2>
-        <p>Explore the full platform before purchasing. All features are enabled on the demo server.</p>
-        <div class="demo-creds">
-          <div class="cred-row"><span class="cred-label">Username</span><span class="cred-val">demo_admin</span></div>
-          <div class="cred-row"><span class="cred-label">Password</span><span class="cred-val">demo1234</span></div>
-          <div class="cred-row"><span class="cred-label">API Key</span><span class="cred-val">6c5f2b2a-a54f...</span></div>
-        </div>
+<section id="demo" style="padding:80px 64px;background:rgba(0,255,136,0.02);border-top:1px solid rgba(0,255,136,0.06)">
+  <div class="demo-box">
+    <div class="demo-left">
+      <h2>Try the<br><span style="color:var(--green)">Live Demo</span></h2>
+      <p>Explore the full platform. All features enabled. Click credentials to copy.</p>
+      <div class="demo-creds">
+        <div class="cred-row"><span class="cred-label">Username</span><span class="cred-val" onclick="copy('demo_admin')">demo_admin</span></div>
+        <div class="cred-row"><span class="cred-label">Password</span><span class="cred-val" onclick="copy('demo1234')">demo1234</span></div>
+        <div class="cred-row"><span class="cred-label">Role</span><span class="cred-val">Admin</span></div>
       </div>
-      <div class="demo-right">
-        <a href="https://earning-frontend-v2.vercel.app" target="_blank" class="demo-link">
-          <div class="demo-link-icon">🖥️</div>
-          <div class="demo-link-text">
-            <div class="demo-link-title">Admin Panel</div>
-            <div class="demo-link-url">earning-frontend-v2.vercel.app</div>
-          </div>
-          <div class="demo-link-arrow">→</div>
-        </a>
-        <a href="https://earning-backend-c-production.up.railway.app/api/docs" target="_blank" class="demo-link">
-          <div class="demo-link-icon">📡</div>
-          <div class="demo-link-text">
-            <div class="demo-link-title">API Documentation</div>
-            <div class="demo-link-url">railway.app/api/docs</div>
-          </div>
-          <div class="demo-link-arrow">→</div>
-        </a>
-        <a href="https://rewardhub-landing-7xkmw1vnk-ainul-550islams-projects.vercel.app" target="_blank" class="demo-link">
-          <div class="demo-link-icon">🚀</div>
-          <div class="demo-link-text">
-            <div class="demo-link-title">Landing Page</div>
-            <div class="demo-link-url">rewardhub-landing.vercel.app</div>
-          </div>
-          <div class="demo-link-arrow">→</div>
-        </a>
-      </div>
+    </div>
+    <div class="demo-right">
+      <a href="https://earning-frontend-v2.vercel.app" target="_blank" class="demo-link">
+        <div class="demo-link-icon">🖥️</div>
+        <div class="demo-link-text"><div class="demo-link-title">Admin Dashboard</div><div class="demo-link-url">earning-frontend-v2.vercel.app</div></div>
+        <div class="demo-link-arrow">→</div>
+      </a>
+      <a href="https://earning-backend-c-production.up.railway.app/api/docs/" target="_blank" class="demo-link">
+        <div class="demo-link-icon">📡</div>
+        <div class="demo-link-text"><div class="demo-link-title">API Documentation</div><div class="demo-link-url">railway.app/api/docs</div></div>
+        <div class="demo-link-arrow">→</div>
+      </a>
+      <a href="https://earning-backend-c-production.up.railway.app/api/" target="_blank" class="demo-link">
+        <div class="demo-link-icon">⚙️</div>
+        <div class="demo-link-text"><div class="demo-link-title">REST API Browser</div><div class="demo-link-url">railway.app/api/</div></div>
+        <div class="demo-link-arrow">→</div>
+      </a>
+      <a href="https://earning-frontend-v2.vercel.app/endpoint-control" target="_blank" class="demo-link">
+        <div class="demo-link-icon">⚡</div>
+        <div class="demo-link-text"><div class="demo-link-title">Endpoint Control</div><div class="demo-link-url">Toggle 5,751 endpoints live</div></div>
+        <div class="demo-link-arrow">→</div>
+      </a>
     </div>
   </div>
 </section>
@@ -456,14 +504,8 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(0,255,136,0.06);pad
   <div class="contact-wrap">
     <form class="contact-form" id="contactForm">
       <div class="form-row">
-        <div class="form-group">
-          <label>Your Name</label>
-          <input type="text" placeholder="John Smith" required>
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="john@company.com" required>
-        </div>
+        <div class="form-group"><label>Your Name</label><input type="text" placeholder="John Smith" required></div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="john@company.com" required></div>
       </div>
       <div class="form-group">
         <label>Interested In</label>
@@ -475,10 +517,7 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(0,255,136,0.06);pad
           <option>White-label Setup</option>
         </select>
       </div>
-      <div class="form-group">
-        <label>Message</label>
-        <textarea placeholder="Tell us about your project..."></textarea>
-      </div>
+      <div class="form-group"><label>Message</label><textarea placeholder="Tell us about your project..."></textarea></div>
       <button type="submit" class="btn-submit" id="submitBtn">Send Message →</button>
       <div class="form-success" id="formSuccess">✅ Message sent! We'll get back to you within 24 hours.</div>
     </form>
@@ -492,8 +531,9 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(0,255,136,0.06);pad
     <h2>Ready to Launch?</h2>
     <p>Get the full earning platform — backend, admin panel, and deployment configuration included.</p>
     <div class="cta-btns">
-      <a href="https://earning-frontend-v2.vercel.app" target="_blank" class="btn-lg g">🚀 Try Live Demo</a>
-      <a href="#pricing" class="btn-lg o">View Pricing</a>
+      <a href="https://earning-frontend-v2.vercel.app" target="_blank" class="btn btn-green btn-lg">🚀 Try Live Demo</a>
+      <a href="https://earning-frontend-v2.vercel.app" target="_blank" class="btn btn-dashboard btn-lg">🖥️ Open Dashboard</a>
+      <a href="#pricing" class="btn btn-outline btn-lg">View Pricing</a>
     </div>
   </div>
 </div>
@@ -503,16 +543,17 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(0,255,136,0.06);pad
   <div class="fl"><div class="logo-icon" style="width:28px;height:28px;font-size:13px">⚡</div>Reward<span style="color:var(--green)">Hub</span></div>
   <div class="footer-links">
     <a href="#features">Features</a>
+    <a href="#dashboard">Dashboard</a>
     <a href="#pricing">Pricing</a>
     <a href="#demo">Demo</a>
     <a href="#contact">Contact</a>
-    <a href="https://earning-frontend-v2.vercel.app" target="_blank">Admin Panel</a>
+    <a href="https://earning-frontend-v2.vercel.app" target="_blank">Admin Panel ↗</a>
   </div>
-  <div class="fc2">© 2026 RewardHub · Built with Django + React</div>
+  <div class="fc2">© 2026 RewardHub · Django + React · Railway & Vercel</div>
 </footer>
 
 <script>
-// Starfield
+// Stars
 const canvas=document.getElementById('starfield');
 const ctx=canvas.getContext('2d');
 function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight}
@@ -526,21 +567,25 @@ const mods=['Wallet','Users','Notifications','Referral','Fraud Detection','KYC',
 const track=document.getElementById('mtrack');
 [...mods,...mods].forEach(m=>{const el=document.createElement('div');el.className='mpill';el.innerHTML=`<span class="mpd"></span>${m}`;track.appendChild(el);});
 
+// Copy credentials
+function copy(text){
+  navigator.clipboard.writeText(text).then(()=>{
+    const els=document.querySelectorAll('.cred-val');
+    els.forEach(el=>{if(el.textContent===text){const orig=el.textContent;el.textContent='✓ Copied!';el.style.background='rgba(0,255,136,0.25)';setTimeout(()=>{el.textContent=orig;el.style.background='';},1500);}});
+  });
+}
+
 // Scroll reveal
 const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}});},{threshold:.08});
-document.querySelectorAll('.fc,.bc,.sc,.price-card,.demo-link').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(22px)';el.style.transition='opacity .6s ease,transform .6s ease';io.observe(el);});
+document.querySelectorAll('.fc,.bc,.sc,.price-card,.demo-link,.dash-card').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(22px)';el.style.transition='opacity .6s ease,transform .6s ease';io.observe(el);});
 
 // Contact form
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+document.getElementById('contactForm').addEventListener('submit',function(e){
   e.preventDefault();
-  const btn = document.getElementById('submitBtn');
-  const success = document.getElementById('formSuccess');
-  btn.disabled = true;
-  btn.textContent = 'Sending...';
-  setTimeout(() => {
-    btn.style.display = 'none';
-    success.style.display = 'block';
-  }, 1000);
+  const btn=document.getElementById('submitBtn');
+  const ok=document.getElementById('formSuccess');
+  btn.disabled=true;btn.textContent='Sending...';
+  setTimeout(()=>{btn.style.display='none';ok.style.display='block';},1000);
 });
 </script>
 </body>
